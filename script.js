@@ -60,10 +60,22 @@ class LinkedList {
     }
 
     at(index) {
-        let current = this.head;
-        if (current !== null) {
-
+        if (index < 0) {
+            return null;
         }
+
+        let count = 0;
+        let current = this.head;
+
+        while (current !== null) {
+            if (count === index) {
+                return current;
+            }
+            count++;
+            current = current.next;
+        }
+
+        return null;
     }
 
     pop() {
@@ -82,7 +94,7 @@ class LinkedList {
 
     }
 }
-// You're doing a really good job GIa
+
 const linkedList = new LinkedList();
 linkedList.prepend(1);
 linkedList.prepend(2);
@@ -92,8 +104,10 @@ linkedList.append(100);
 let head = linkedList.getHead();
 let tail = linkedList.getTail();
 let size = linkedList.getSize();
+let nodeAtIndex = linkedList.at(5);
 console.log(linkedList);
 
 console.log("head: " + head.data);
 console.log("tail: " + tail.data);
 console.log("size: " + size);
+console.log("at index: " + nodeAtIndex.data);
