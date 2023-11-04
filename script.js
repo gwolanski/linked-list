@@ -5,7 +5,6 @@ class Node {
     }
 }
 
-
 class LinkedList {
     constructor() {
         this.head = null;
@@ -56,6 +55,7 @@ class LinkedList {
         while (current.next !== null) {
             current = current.next;
         }
+
         return current;
     }
 
@@ -79,11 +79,44 @@ class LinkedList {
     }
 
     pop() {
+        let current = this.head;
+        let previous = null;
 
+        if (current === null) {
+            return null;
+        }
+        
+        if (current.next === null) {
+            const removedNode = current;
+            current = null;
+            return removedNode;
+        }
+
+        while (current.next !== null) {
+            previous = current;
+            current = current.next;
+        }
+        
+        previous.next = null;
+
+        return current;
     }
+    
 
     contains(value) {
+        let current = this.head;
 
+        if (current === null) {
+            return false;
+        }
+
+        while (current !== null) {
+            if (current.data === value) {
+                return true;
+            } 
+            current = current.next;
+        }
+        return false;
     }
 
     find(value) {
@@ -104,10 +137,14 @@ linkedList.append(100);
 let head = linkedList.getHead();
 let tail = linkedList.getTail();
 let size = linkedList.getSize();
-let nodeAtIndex = linkedList.at(5);
+let nodeAtIndex = linkedList.at(4);
+let removedNode = linkedList.pop();
+let containsValue = linkedList.contains(50);
 console.log(linkedList);
 
 console.log("head: " + head.data);
 console.log("tail: " + tail.data);
 console.log("size: " + size);
 console.log("at index: " + nodeAtIndex.data);
+console.log("removedNode: " + removedNode.data); //test this one out more
+console.log("contains value: " + containsValue);
