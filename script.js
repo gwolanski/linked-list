@@ -120,7 +120,22 @@ class LinkedList {
     }
 
     find(value) {
+        let current = this.head;
+        let count = 0;
 
+        if (current === null) {
+            return null
+        }
+
+        while (current !== null) {
+            if (current.data === value) {
+                return count;
+            }
+            count++;
+            current = current.next;
+        }
+
+        return null;
     }
 
     toString() {
@@ -140,6 +155,7 @@ let size = linkedList.getSize();
 let nodeAtIndex = linkedList.at(4);
 let removedNode = linkedList.pop();
 let containsValue = linkedList.contains(50);
+let findIndexofValue = linkedList.find(50);
 console.log(linkedList);
 
 console.log("head: " + head.data);
@@ -148,3 +164,4 @@ console.log("size: " + size);
 console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
 console.log("contains value: " + containsValue);
+console.log("index at value: " + findIndexofValue);
