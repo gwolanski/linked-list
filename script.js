@@ -139,7 +139,23 @@ class LinkedList {
     }
 
     toString() {
+        let current = this.head;
+        let string = current.data + " -> ";
 
+        if (current === null) {
+            console.log("String list: null")
+        } 
+
+        while (current !== null) {
+            current = current.next;
+
+            if (current !== null) {
+                string += current.data + " -> ";
+            } else {
+                string += "null";
+            }
+        }
+        return string;
     }
 }
 
@@ -156,6 +172,7 @@ let nodeAtIndex = linkedList.at(4);
 let removedNode = linkedList.pop();
 let containsValue = linkedList.contains(50);
 let findIndexofValue = linkedList.find(50);
+let stringList = linkedList.toString();
 console.log(linkedList);
 
 console.log("head: " + head.data);
@@ -165,3 +182,4 @@ console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
 console.log("contains value: " + containsValue);
 console.log("index at value: " + findIndexofValue);
+console.log("string list: " + stringList);
