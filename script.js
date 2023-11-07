@@ -74,17 +74,27 @@ class LinkedList {
         let count = 0;
         let current = this.head;
 
-        if (current === null) {
-            return null;
-        } else {
-            while (current !== null) {
-                if (count === index) {
-                    return current;
-                }
-                count++;
-                current = current.next;
+        while (current !== null) {
+            if (count === index) {
+                console.log("current: "+ current)
+                return current;
             }
+            count++;
+            console.log("count++: " + count)
+            current = current.next;
         }
+
+    //     if (current === null) {
+    //         return null;
+    //     } else {
+    //         while (current !== null) {
+    //             if (count === index) {
+    //                 return current;
+    //             }
+    //             count++;
+    //             current = current.next;
+    //         }
+    //     }
 
     }
 
@@ -195,32 +205,47 @@ if (tail === null) {
 //append value to list
 let appendInput = document.getElementById("append-input");
 let appendButton = document.getElementById("append-button");
+let appendError = document.getElementById("append-error");
 appendButton.addEventListener("click", function () {
     let value = appendInput.value;
-    linkedList.append(value);
-    updateDisplay();
-    console.log("new list: " + linkedList)
+    if (value === "") {
+        appendError.innerHTML = "Invalid";
+    } else {
+        appendError.innerHTML = "";
+        linkedList.append(value);
+        updateDisplay();
+    }  
 })
 
 //prepend value to list
 let prependInput = document.getElementById("prepend-input");
 let prependButton = document.getElementById("prepend-button");
+let prependError = document.getElementById("prepend-error");
 prependButton.addEventListener("click", function () {
     let value = prependInput.value;
-    linkedList.prepend(value);
-    updateDisplay();
+    if (value === "") {
+        prependError.innerHTML = "Invalid";
+    } else {
+        prependError.innerHTML = "";
+        linkedList.prepend(value);
+        updateDisplay();
+    }
 })
 
 //find node at index
 let indexInput = document.getElementById("node-index");
 let indexButton = document.getElementById("node-index-button");
 let indexResponse = document.getElementById("node-index-response");
-// indexButton.addEventListener("click", function () {
-//     let index = indexInput.value;
-//     let indexValue = linkedList.at(index).data;
-//     console.log("indexValue:" + indexValue);
-//     indexResponse.innerHTML = indexValue;
-// })
+indexButton.addEventListener("click", function () {
+    let index = indexInput.value;
+    if (index < 0) {
+        indexResponse.innerHTML = "null";
+    } else {
+        let indexValue = linkedList.at(index);
+        indexResponse.innerHTML = indexValue;
+    }
+    
+})
 
 //does list contain value
 let containInput = document.getElementById("contain-value");
@@ -253,13 +278,6 @@ removeLastNodeButton.addEventListener("click", function () {
     linkedList.pop();
     updateDisplay();
 })
-
-
-let removedNode = linkedList.pop();
-console.log(linkedList);
-
-console.log("removedNode: " + removedNode.data); //test this one out more
-console.log("string list: " + stringList);
 
 function updateDisplay() {
     let updatedSize = linkedList.getSize();
