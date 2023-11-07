@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Linked List</title>
 </head>
 <body>
+    <div id="title">Linked List</div>
+
+    <div id="list-container">
+        <div id="display">List: </div>
+        <div id="list-display"></div>
+    </div>
+   
+    <div id="list-stats">
+        <div id="size-container" class="stat-container">
+            <div class="stat-title">Size of List:</div>
+            <div id="list-size"></div>
+        </div>
+
+        <div id="head-container" class="stat-container">
+            <div class="stat-title">Head of List:</div>
+            <div id="list-head"></div>
+        </div>
+    
+        <div id="tail-container" class="stat-container">
+            <div class="stat-title">Tail of List:</div>
+            <div id="list-tail"></div>
+        </div>
+
+    </div>
+
+    <div id="list-actions">
+        <div id="actions-title">List Actions:</div>
+
+        <div class="action-container">
+            <input type="number" name="append" id="append-input" placeholder="Enter number">
+            <button id="append-button">Append Number to List</button>
+        </div>
+        <div class="action-container">
+            <input type="number" name="prepend" id="prepend-input" placeholder="Enter number">
+            <button id="prepend-button">Prepend Number to List</button>
+        </div>
+        <div class="action-container">
+            <input type="number" name="" id="" placeholder="Enter index">
+            <button id="node-index-button">Find Node at Index</button>
+        </div>
+        <div class="action-container">
+            <input type="number" name="contain-value" id="contain-value" placeholder="Enter value">
+            <button id="find-value">Does List Contain Value?</button>
+        </div>
+        <div class="action-container">
+            <input type="number" name="find-value" id="find-value" placeholder="Enter value">
+            <button id="find-value">Find Value Index in List</button>
+        </div>
+        <div class="action-container">
+            <button id="pop-button">Remove Last Node</button>
+        </div>
+    
+
+    
+
+    </div>
+
+
+
+
     <script src="./script.js"></script>
 </body>
 </html>

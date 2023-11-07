@@ -1,0 +1,42 @@
+#title {
+   font-size: 2rem; 
+   padding: 5px;
+   padding-bottom: 20px;
+   text-align: center;
+   font-weight: bold;
+}
+
+button {
+    padding: 5px;
+}
+
+#list-container {
+    margin: 20px 0;
+}
+
+#list-stats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.stat-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5px;
+}
+
+.stat-title {
+    font-weight: bold;
+}
+
+#list-actions {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    min-width: 350px;
+}

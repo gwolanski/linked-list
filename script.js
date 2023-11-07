@@ -52,6 +52,11 @@ class LinkedList {
 
     getTail() {
         let current = this.head;
+        
+        if (current === null) {
+            return null;
+        }
+        
         while (current.next !== null) {
             current = current.next;
         }
@@ -160,23 +165,50 @@ class LinkedList {
 }
 
 const linkedList = new LinkedList();
+
 linkedList.prepend(1);
 linkedList.prepend(2);
 linkedList.prepend(3);
 linkedList.append(6);
 linkedList.append(100);
-let head = linkedList.getHead();
-let tail = linkedList.getTail();
+
+//display linked list
+let stringList = linkedList.toString();
+let displayList = document.getElementById("list-display");
+displayList.innerHTML = stringList;
+
+//get size
 let size = linkedList.getSize();
+let displaySize = document.getElementById("list-size");
+displaySize.innerHTML = size;
+
+//get head
+let head = linkedList.getHead();
+let displayHead = document.getElementById("list-head");
+displayHead.innerHTML = head.data;
+
+
+//get tail
+let tail = linkedList.getTail();
+let displayTail = document.getElementById("list-tail");
+displayTail.innerHTML = tail.data;
+
+// let appendInput = document.getElementById("append-input");
+// let appendButton = document.getElementById("append-button");
+// appendButton.addEventListener("click", {
+//     linkedList.append(appendInput);
+// })
+
+
+
 let nodeAtIndex = linkedList.at(4);
 let removedNode = linkedList.pop();
 let containsValue = linkedList.contains(50);
 let findIndexofValue = linkedList.find(50);
-let stringList = linkedList.toString();
 console.log(linkedList);
 
-console.log("head: " + head.data);
-console.log("tail: " + tail.data);
+// console.log("head: " + head.data);
+// console.log("tail: " + tail.data);
 console.log("size: " + size);
 console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
