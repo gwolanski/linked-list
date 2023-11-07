@@ -106,8 +106,6 @@ class LinkedList {
     
             return current;
         }
-
- 
     }
     
 
@@ -161,13 +159,6 @@ class LinkedList {
 
 const linkedList = new LinkedList();
 
-// linkedList.prepend(1);
-// linkedList.prepend(2);
-// linkedList.prepend(3);
-// linkedList.append(6);
-// linkedList.append(100);
-// linkedList.append(50);
-
 //display linked list
 let stringList = linkedList.toString();
 let displayList = document.getElementById("list-display");
@@ -207,6 +198,13 @@ appendButton.addEventListener("click", function () {
 })
 
 //prepend value to list
+let prependInput = document.getElementById("prepend-input");
+let prependButton = document.getElementById("prepend-button");
+prependButton.addEventListener("click", function () {
+    let value = prependInput.value;
+    linkedList.prepend(value);
+    updateDisplay();
+})
 
 //find node at index
 
@@ -245,14 +243,12 @@ function updateDisplay() {
         displayHead.innerHTML = "null";
     }
     
-
     let updatedTail =linkedList.getTail();
     if (updatedTail !== null) {
         displayTail.innerHTML = updatedTail.data;
     } else {
         displayTail.innerHTML = "null";
     }
-   
 
     let updatedList = linkedList.toString();
     displayList.innerHTML = updatedList;
