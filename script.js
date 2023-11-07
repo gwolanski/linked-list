@@ -207,6 +207,12 @@ prependButton.addEventListener("click", function () {
 })
 
 //find node at index
+let indexInput = document.getElementById("node-index");
+let indexButton = document.getElementById("node-index-button");
+indexButton.addEventListener("click", function () {
+    let index = indexInput.value;
+    linkedList.at(index);
+})
 
 //does list contain value
 

@@ -40,3 +40,7 @@ button {
     width: 350px;
     min-width: 350px;
 }
+
+.action-button {
+    width: 165px;
+}
