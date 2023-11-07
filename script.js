@@ -64,6 +64,8 @@ class LinkedList {
         return current;
     }
 
+
+    //something aint right- fix this
     at(index) {
         if (index < 0) {
             return null;
@@ -72,15 +74,18 @@ class LinkedList {
         let count = 0;
         let current = this.head;
 
-        while (current !== null) {
-            if (count === index) {
-                return current;
+        if (current === null) {
+            return null;
+        } else {
+            while (current !== null) {
+                if (count === index) {
+                    return current;
+                }
+                count++;
+                current = current.next;
             }
-            count++;
-            current = current.next;
         }
 
-        return null;
     }
 
     pop() {
@@ -209,12 +214,23 @@ prependButton.addEventListener("click", function () {
 //find node at index
 let indexInput = document.getElementById("node-index");
 let indexButton = document.getElementById("node-index-button");
-indexButton.addEventListener("click", function () {
-    let index = indexInput.value;
-    linkedList.at(index);
-})
+let indexResponse = document.getElementById("index-response");
+// indexButton.addEventListener("click", function () {
+//     let index = indexInput.value;
+//     let indexValue = linkedList.at(index).data;
+//     console.log("indexValue:" + indexValue);
+//     indexResponse.innerHTML = indexValue;
+// })
 
 //does list contain value
+let containInput = document.getElementById("contain-value");
+let containButton = document.getElementById("contain-value-button");
+let containResponse = document.getElementById("contain-response");
+containButton.addEventListener("click", function () {
+    let value = containInput.value;
+    containResponse.innerHTML = linkedList.contains(value);
+})
+
 
 //find value index
 
@@ -226,13 +242,11 @@ removeLastNodeButton.addEventListener("click", function () {
 })
 
 
-let nodeAtIndex = linkedList.at(4);
 let removedNode = linkedList.pop();
 let containsValue = linkedList.contains(50);
 let findIndexofValue = linkedList.find(50);
 console.log(linkedList);
 
-console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
 console.log("contains value: " + containsValue);
 console.log("index at value: " + findIndexofValue);
