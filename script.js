@@ -145,32 +145,25 @@ class LinkedList {
 
     toString() {
         let current = this.head;
-        let string = current.data + " -> ";
-
-        if (current === null) {
-            console.log("String list: null")
-        } 
+        let string = "";
 
         while (current !== null) {
+            string += current.data + " -> ";
             current = current.next;
-
-            if (current !== null) {
-                string += current.data + " -> ";
-            } else {
-                string += "null";
-            }
         }
+        string += "null";
         return string;
     }
 }
 
 const linkedList = new LinkedList();
 
-linkedList.prepend(1);
-linkedList.prepend(2);
-linkedList.prepend(3);
-linkedList.append(6);
-linkedList.append(100);
+// linkedList.prepend(1);
+// linkedList.prepend(2);
+// linkedList.prepend(3);
+// linkedList.append(6);
+// linkedList.append(100);
+// linkedList.append(50);
 
 //display linked list
 let stringList = linkedList.toString();
@@ -185,20 +178,45 @@ displaySize.innerHTML = size;
 //get head
 let head = linkedList.getHead();
 let displayHead = document.getElementById("list-head");
-displayHead.innerHTML = head.data;
-
+if (head === null) {
+    displayHead.innerHTML = "null";
+} else {
+    displayHead.innerHTML = head.data;
+}
 
 //get tail
 let tail = linkedList.getTail();
 let displayTail = document.getElementById("list-tail");
-displayTail.innerHTML = tail.data;
+if (tail === null) {
+    displayTail.innerHTML = "null";
+} else {
+    displayTail.innerHTML = tail.data;
+}
 
-// let appendInput = document.getElementById("append-input");
-// let appendButton = document.getElementById("append-button");
-// appendButton.addEventListener("click", {
-//     linkedList.append(appendInput);
-// })
+//append value to list
+let appendInput = document.getElementById("append-input");
+let appendButton = document.getElementById("append-button");
+appendButton.addEventListener("click", function () {
+    let value = appendInput.value;
+    linkedList.append(value);
+    updateDisplay();
+    console.log("new list: " + linkedList)
+})
 
+//prepend value to list
+
+//find node at index
+
+//does list contain value
+
+//find value index
+
+//remove last node
+let removeLastNodeButton = document.getElementById("pop-button");
+removeLastNodeButton.addEventListener("click", function () {
+    linkedList.pop();
+    updateDisplay();
+})
 
 
 let nodeAtIndex = linkedList.at(4);
@@ -207,11 +225,15 @@ let containsValue = linkedList.contains(50);
 let findIndexofValue = linkedList.find(50);
 console.log(linkedList);
 
-// console.log("head: " + head.data);
-// console.log("tail: " + tail.data);
+
 console.log("size: " + size);
 console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
 console.log("contains value: " + containsValue);
 console.log("index at value: " + findIndexofValue);
 console.log("string list: " + stringList);
+
+function updateDisplay() {
+    let updatedList = linkedList.toString();
+    displayList.innerHTML = updatedList;
+}
