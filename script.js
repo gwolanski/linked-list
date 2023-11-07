@@ -225,8 +225,6 @@ let containsValue = linkedList.contains(50);
 let findIndexofValue = linkedList.find(50);
 console.log(linkedList);
 
-
-console.log("size: " + size);
 console.log("at index: " + nodeAtIndex.data);
 console.log("removedNode: " + removedNode.data); //test this one out more
 console.log("contains value: " + containsValue);
@@ -234,6 +232,15 @@ console.log("index at value: " + findIndexofValue);
 console.log("string list: " + stringList);
 
 function updateDisplay() {
+    let updatedSize = linkedList.getSize();
+    displaySize.innerHTML = updatedSize;
+
+    let updatedHead = linkedList.getHead();
+    displayHead.innerHTML = updatedHead.data;
+
+    let updatedTail =linkedList.getTail();
+    displayTail.innerHTML = updatedTail.data;
+
     let updatedList = linkedList.toString();
     displayList.innerHTML = updatedList;
 }
