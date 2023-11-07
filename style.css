@@ -37,8 +37,8 @@ button {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    min-width: 350px;
+    width: 370px;
+    min-width: 370px;
 }
 
 .action-button {

@@ -130,7 +130,7 @@ class LinkedList {
         return false;
     }
 
-    find(value) {
+    findIndex(value) {
         let current = this.head;
         let count = 0;
 
@@ -214,7 +214,7 @@ prependButton.addEventListener("click", function () {
 //find node at index
 let indexInput = document.getElementById("node-index");
 let indexButton = document.getElementById("node-index-button");
-let indexResponse = document.getElementById("index-response");
+let indexResponse = document.getElementById("node-index-response");
 // indexButton.addEventListener("click", function () {
 //     let index = indexInput.value;
 //     let indexValue = linkedList.at(index).data;
@@ -233,6 +233,19 @@ containButton.addEventListener("click", function () {
 
 
 //find value index
+let findIndexInput = document.getElementById("find-index");
+let findIndexButton = document.getElementById("find-index-button");
+let findIndexResponse = document.getElementById("find-index-response");
+findIndexButton.addEventListener("click", function () {
+    let value = findIndexInput.value;
+    let index = linkedList.findIndex(value);
+    if (index === null) {
+        findIndexResponse.innerHTML = "null";  
+    } else {
+        findIndexResponse.innerHTML = index;
+    }
+    
+})
 
 //remove last node
 let removeLastNodeButton = document.getElementById("pop-button");
@@ -243,13 +256,9 @@ removeLastNodeButton.addEventListener("click", function () {
 
 
 let removedNode = linkedList.pop();
-let containsValue = linkedList.contains(50);
-let findIndexofValue = linkedList.find(50);
 console.log(linkedList);
 
 console.log("removedNode: " + removedNode.data); //test this one out more
-console.log("contains value: " + containsValue);
-console.log("index at value: " + findIndexofValue);
 console.log("string list: " + stringList);
 
 function updateDisplay() {
