@@ -94,17 +94,20 @@ class LinkedList {
         if (current.next === null) {
             const removedNode = current;
             current = null;
+            this.head = null;
             return removedNode;
+        } else {
+            while (current.next !== null) {
+                previous = current;
+                current = current.next;
+            }
+            
+            previous.next = null;
+    
+            return current;
         }
 
-        while (current.next !== null) {
-            previous = current;
-            current = current.next;
-        }
-        
-        previous.next = null;
-
-        return current;
+ 
     }
     
 
@@ -236,10 +239,20 @@ function updateDisplay() {
     displaySize.innerHTML = updatedSize;
 
     let updatedHead = linkedList.getHead();
-    displayHead.innerHTML = updatedHead.data;
+    if (updatedHead !== null) {
+        displayHead.innerHTML = updatedHead.data;
+    } else {
+        displayHead.innerHTML = "null";
+    }
+    
 
     let updatedTail =linkedList.getTail();
-    displayTail.innerHTML = updatedTail.data;
+    if (updatedTail !== null) {
+        displayTail.innerHTML = updatedTail.data;
+    } else {
+        displayTail.innerHTML = "null";
+    }
+   
 
     let updatedList = linkedList.toString();
     displayList.innerHTML = updatedList;
