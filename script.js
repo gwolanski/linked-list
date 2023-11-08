@@ -253,7 +253,12 @@ let containButton = document.getElementById("contain-value-button");
 let containResponse = document.getElementById("contain-response");
 containButton.addEventListener("click", function () {
     let value = containInput.value;
-    containResponse.innerHTML = linkedList.contains(value);
+    let containValue = linkedList.contains(value);
+    if (containValue === true){
+        containResponse.innerHTML = "yes"; 
+    } else {
+        containResponse.innerHTML = "no";
+    }
 })
 
 
