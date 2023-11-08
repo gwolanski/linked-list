@@ -65,7 +65,7 @@ class LinkedList {
     }
 
 
-    //something aint right- fix this
+    //something isnt right, returning undefined- fix this!!!
     at(index) {
         if (index < 0) {
             return null;
