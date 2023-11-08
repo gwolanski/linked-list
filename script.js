@@ -64,38 +64,26 @@ class LinkedList {
         return current;
     }
 
-
-    //something isnt right, returning undefined- fix this!!!
     at(index) {
         if (index < 0) {
+            return null;
+        }
+
+        let size = this.getSize();
+        if (index >= size) {
             return null;
         }
 
         let count = 0;
         let current = this.head;
 
-        while (current !== null) {
-            if (count === index) {
-                console.log("current: "+ current)
+        while (current !== null) {            
+            if (count == index) {
                 return current;
             }
             count++;
-            console.log("count++: " + count)
             current = current.next;
         }
-
-    //     if (current === null) {
-    //         return null;
-    //     } else {
-    //         while (current !== null) {
-    //             if (count === index) {
-    //                 return current;
-    //             }
-    //             count++;
-    //             current = current.next;
-    //         }
-    //     }
-
     }
 
     pop() {
@@ -238,13 +226,13 @@ let indexButton = document.getElementById("node-index-button");
 let indexResponse = document.getElementById("node-index-response");
 indexButton.addEventListener("click", function () {
     let index = indexInput.value;
-    if (index < 0) {
+    let size = linkedList.getSize();
+    if (index < 0 || index >= size) {
         indexResponse.innerHTML = "null";
     } else {
         let indexValue = linkedList.at(index);
-        indexResponse.innerHTML = indexValue;
+        indexResponse.innerHTML = indexValue.data;
     }
-    
 })
 
 //does list contain value
