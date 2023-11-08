@@ -1,1 +1,7 @@
 # linked-list
+
+This Linked List project is a part of the Odin Project curriculum and put my recent learning of linked lists to the test. The project was relatively basic and required me to create a node class and linked list class that contained class functions. The goal was to build a variety of noted functions that could perform certain actions on my created linked list. Although I said this project was basic, it was still challenging to figure out how to build each of the class functions.
+
+Although this project was meant to just exist in the console, I decided to take it a step further and build a UI for my logic to make this project more interactive. I figured this would have multiple benefits, like giving me more practice on HTML, CSS, and DOM manipulation in JS while also being more user-friendly to anyone who may view and test out my linked-list repository in the future. 
+
+I remain a strong proponent of the idea that a majority of my learning occurs during projects. It can sometimes be hard to truly understand something while reading over material and watching videos. It's when I get to the projects that everything I learned begins to click into place. I have a lot more confidence with linked lists now than I had going into this project and am looking forward to building on this confidence and knowledge. 
