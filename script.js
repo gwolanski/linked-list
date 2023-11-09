@@ -158,6 +158,64 @@ class LinkedList {
         string += "null";
         return string;
     }
+
+    //extra credit
+    // insertAt(value, index) {
+    //     let current = this.head;
+    //     let previous = null
+    //     let count = 0;
+
+    //     while (current !== null) {
+    //         if (count == index) {
+    //             // previous = current;
+    //             current.next = current;
+    //             current = value;
+                
+    //         } else {
+    //             current = current.next;
+    //             count++;
+    //         }
+    //     }
+
+    //     // while (count < index) {
+    //     //     if (count == index-1) {
+
+    //     //     }
+    //     //     current = current.next
+    //     //     count++
+    //     // }
+    // }
+    
+    removeAt(index) {
+        let current = this.head;
+        let previous = null;
+        let count = 0;
+
+        if (current === null) {
+            return null;
+        }
+
+        if (index == 0) {
+            const removedNode = current;
+            this.head = current.next;
+
+            return removedNode;
+        }
+        
+        while (count < index && current !== null) {
+
+            if (count == index - 1) {
+                const removedNode = current.next;
+                current.next = current.next.next;
+
+                return removedNode;
+            }
+            previous = current;
+            current = current.next;
+            count++;
+        }
+        
+    }
 }
 
 const linkedList = new LinkedList();
@@ -263,6 +321,24 @@ findIndexButton.addEventListener("click", function () {
         findIndexResponse.innerHTML = index;
     }
     
+}
+)
+
+//remove node at index - extra credit
+let removeAtIndexInput = document.getElementById("remove-at");
+let removeAtIndexButton = document.getElementById("remove-at-button");
+let removeAtIndexResponse = document.getElementById("remove-at-response");
+removeAtIndexButton.addEventListener("click", function() {
+    let removeAtIndex = removeAtIndexInput.value;
+    let size = linkedList.getSize();
+
+    if (removeAtIndex < 0 || removeAtIndex == "" || removeAtIndex >= size) {
+        removeAtIndexResponse.innerHTML = "null";
+    } else {
+        removeAtIndexResponse.innerHTML = "";
+        linkedList.removeAt(removeAtIndex);
+        updateDisplay();
+    }
 })
 
 //remove last node
