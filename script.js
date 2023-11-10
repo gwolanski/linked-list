@@ -158,33 +158,6 @@ class LinkedList {
         string += "null";
         return string;
     }
-
-    //extra credit
-    // insertAt(value, index) {
-    //     let current = this.head;
-    //     let previous = null
-    //     let count = 0;
-
-    //     while (current !== null) {
-    //         if (count == index) {
-    //             // previous = current;
-    //             current.next = current;
-    //             current = value;
-                
-    //         } else {
-    //             current = current.next;
-    //             count++;
-    //         }
-    //     }
-
-    //     // while (count < index) {
-    //     //     if (count == index-1) {
-
-    //     //     }
-    //     //     current = current.next
-    //     //     count++
-    //     // }
-    // }
     
     removeAt(index) {
         let current = this.head;
@@ -214,7 +187,6 @@ class LinkedList {
             current = current.next;
             count++;
         }
-        
     }
 }
 
@@ -319,8 +291,7 @@ findIndexButton.addEventListener("click", function () {
         findIndexResponse.innerHTML = "null";  
     } else {
         findIndexResponse.innerHTML = index;
-    }
-    
+    }  
 }
 )
 
